@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRS Service | Chouriço Caseiro Artesanal em Maputo e Matola</title>
+<meta name="description" content="Chouriço caseiro 100% natural, feito com carne fresca e preparado artesanalmente. Entregas em Maputo e Matola. Encomende agora pelo WhatsApp.">
+<meta name="keywords" content="chouriço caseiro, chouriço Maputo, chouriço Matola, chouriço artesanal, HRS Service, enchidos caseiros Moçambique">
+<meta property="og:title" content="HRS Service — O sabor tradicional que transforma qualquer refeição">
+<meta property="og:description" content="Chouriço caseiro artesanal, feito com carne fresca. Entrega em Maputo e Matola.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1c1512;
+    --charcoal-2:#241a15;
+    --wine:#6e1d1a;
+    --wine-2:#8a2620;
+    --ember:#b3401f;
+    --gold:#c39a4d;
+    --gold-2:#e3c17c;
+    --cream:#f6efe1;
+    --bege:#ece1c9;
+    --ink:#2a201a;
+    --ink-soft:#5a4d43;
+    --white:#fffaf1;
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--charcoal);
+    font-weight:600;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- knot / rope motif (signature element) ---------- */
+  .knot-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:0 auto;
+  }
+  .knot-divider svg{flex-shrink:0;}
+  .knot-divider .line{
+    height:1px;
+    width:60px;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .eyebrow{
+    font-family:'Work Sans',sans-serif;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--wine-2);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(28,21,18,.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(195,154,77,.25);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:42px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4));}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-text b{
+    font-family:'Fraunces',serif;color:var(--white);font-size:19px;letter-spacing:.02em;
+  }
+  .brand-text span{color:var(--gold-2);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a{
+    color:var(--bege);font-size:14px;font-weight:500;letter-spacing:.02em;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--gold-2);}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:var(--charcoal);
+    padding:10px 20px;border-radius:var(--radius);
+    font-weight:700;font-size:13.5px;letter-spacing:.03em;
+    transition:background .2s, transform .2s;
+  }
+  .nav-cta:hover{background:var(--gold-2);transform:translateY(-1px);}
+  .burger{display:none;background:none;color:var(--white);font-size:26px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;align-items:center;
+    overflow:hidden;
+    background:var(--charcoal);
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background-image:url('assets/chourico-3.jpg');
+    background-size:cover;background-position:center 35%;
+    opacity:.55;
+    transform:scale(1.06);
+    animation:heroZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom{from{transform:scale(1.06);}to{transform:scale(1.14);}}
+  .hero-overlay{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(20,14,12,.55) 0%, rgba(20,14,12,.75) 55%, rgba(20,14,12,.96) 100%),
+      linear-gradient(100deg, rgba(28,21,18,.92) 0%, rgba(28,21,18,.35) 55%, rgba(28,21,18,.15) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;
+    padding:120px 28px 80px;width:100%;
+  }
+  .hero-inner{max-width:640px;}
+  .hero .eyebrow{color:var(--gold-2);}
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(38px,5.6vw,64px);
+    line-height:1.06;
+    letter-spacing:-.01em;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--gold-2);font-weight:500;
+  }
+  .hero p.sub{
+    color:var(--bege);font-size:18px;max-width:490px;margin-bottom:34px;
+    font-weight:400;
+  }
+  .btn-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(180deg, var(--gold-2), var(--gold));
+    color:var(--charcoal);
+    padding:17px 30px;border-radius:var(--radius);
+    font-weight:700;font-size:15.5px;letter-spacing:.01em;
+    box-shadow:0 10px 30px -8px rgba(195,154,77,.55);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px -6px rgba(195,154,77,.65);}
+  .btn-primary svg{width:20px;height:20px;}
+  .hero-badge{
+    display:flex;align-items:center;gap:10px;
+    color:var(--bege);font-size:13.5px;font-weight:500;
+  }
+  .hero-badge svg{width:18px;height:18px;color:var(--gold-2);flex-shrink:0;}
+  .hero-stats{
+    display:flex;gap:36px;margin-top:56px;padding-top:28px;
+    border-top:1px solid rgba(227,193,124,.25);
+    max-width:520px;
+  }
+  .hero-stats div b{
+    display:block;font-family:'Fraunces',serif;color:var(--white);
+    font-size:26px;font-weight:600;
+  }
+  .hero-stats div span{color:var(--bege);font-size:12.5px;letter-spacing:.03em;}
+
+  /* ---------- sections generic ---------- */
+  section{padding:96px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px;}
+  .section-head h2{
+    font-size:clamp(28px,3.6vw,42px);margin:16px 0 14px;line-height:1.15;
+  }
+  .section-head p{color:var(--ink-soft);font-size:16.5px;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  }
+  .about-media{position:relative;}
+  .about-media .frame{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(28,21,18,.35);
+  }
+  .about-media img{width:100%;height:520px;object-fit:cover;}
+  .about-media .frame::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(28,21,18,.35), transparent 45%);
+  }
+  .about-tag{
+    position:absolute;bottom:-24px;left:-24px;
+    background:var(--wine);color:var(--white);
+    padding:18px 22px;border-radius:var(--radius);
+    box-shadow:0 16px 30px -10px rgba(110,29,26,.55);
+    max-width:220px;
+  }
+  .about-tag b{font-family:'Fraunces',serif;font-size:15px;display:block;margin-bottom:2px;color:var(--gold-2);}
+  .about-tag span{font-size:12.5px;color:var(--bege);}
+  .about-text .eyebrow{margin-bottom:14px;display:block;}
+  .about-text h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:20px;line-height:1.2;}
+  .about-text p.lead{font-size:17px;color:var(--ink-soft);margin-bottom:30px;}
+  .benefits{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .benefit{
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:14.5px;font-weight:600;color:var(--ink);
+    padding:12px 14px;background:var(--cream);border-radius:var(--radius);
+    border:1px solid rgba(195,154,77,.2);
+  }
+  .benefit svg{width:18px;height:18px;color:var(--wine-2);flex-shrink:0;margin-top:1px;}
+
+  /* ---------- products ---------- */
+  .products{background:var(--charcoal);position:relative;}
+  .products::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at top, rgba(195,154,77,.08), transparent 60%);
+    pointer-events:none;
+  }
+  .products .section-head h2{color:var(--white);}
+  .products .section-head p{color:var(--bege);}
+  .products .eyebrow{color:var(--gold-2);}
+  .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative;z-index:1;}
+  .product-card{
+    background:var(--charcoal-2);
+    border:1px solid rgba(195,154,77,.28);
+    border-radius:var(--radius);
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .3s, box-shadow .3s, border-color .3s;
+  }
+  .product-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(227,193,124,.6);
+    box-shadow:0 24px 50px -18px rgba(0,0,0,.6);
+  }
+  .product-media{height:260px;overflow:hidden;position:relative;}
+  .product-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .product-card:hover .product-media img{transform:scale(1.06);}
+  .product-ribbon{
+    position:absolute;top:16px;left:16px;
+    background:var(--gold);color:var(--charcoal);
+    font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 12px;border-radius:var(--radius);
+  }
+  .product-body{padding:28px 26px 30px;flex:1;display:flex;flex-direction:column;}
+  .product-body h3{color:var(--white);font-size:23px;margin-bottom:6px;}
+  .product-body .tagline{color:var(--gold-2);font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:16px;}
+  .product-body p.desc{color:var(--bege);font-size:14.5px;margin-bottom:20px;}
+  .price-table{margin-bottom:24px;border-top:1px solid rgba(195,154,77,.25);padding-top:16px;}
+  .price-row{
+    display:flex;justify-content:space-between;
+    font-size:14.5px;color:var(--bege);padding:6px 0;
+  }
+  .price-row b{color:var(--white);font-family:'Fraunces',serif;font-size:16px;font-weight:600;}
+  .price-row.highlight{color:var(--gold-2);font-weight:600;}
+  .btn-order{
+    margin-top:auto;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:transparent;border:1.5px solid var(--gold);color:var(--gold-2);
+    padding:13px 20px;border-radius:var(--radius);
+    font-weight:700;font-size:14px;letter-spacing:.02em;
+    transition:background .2s,color .2s;
+  }
+  .btn-order:hover{background:var(--gold);color:var(--charcoal);}
+  .btn-order svg{width:16px;height:16px;}
+
+  /* ---------- why choose ---------- */
+  .why{background:var(--bege);}
+  .why-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:20px;
+  }
+  .why-card{
+    background:var(--white);padding:32px 20px;text-align:center;
+    border-radius:var(--radius);border:1px solid rgba(195,154,77,.25);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .why-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -20px rgba(110,29,26,.3);}
+  .why-icon{
+    width:56px;height:56px;border-radius:50%;
+    background:linear-gradient(180deg, var(--wine), var(--wine-2));
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 18px;
+  }
+  .why-icon svg{width:26px;height:26px;color:var(--gold-2);}
+  .why-card h4{font-size:16px;margin-bottom:6px;}
+  .why-card p{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- recipes ---------- */
+  .recipes{background:var(--white);}
+  .recipe-row{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+  }
+  .recipe-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;height:220px;
+    display:flex;align-items:flex-end;padding:18px;
+    background:linear-gradient(180deg, rgba(28,21,18,.15), rgba(28,21,18,.88)), var(--charcoal);
+  }
+  .recipe-card b{
+    color:var(--white);font-family:'Fraunces',serif;font-size:18px;font-weight:600;
+    position:relative;z-index:1;
+  }
+  .recipe-card span.num{
+    position:absolute;top:14px;right:16px;color:var(--gold-2);font-size:12px;
+    font-weight:700;letter-spacing:.1em;
+  }
+
+  /* ---------- testimonials ---------- */
+  .testi{background:var(--charcoal);position:relative;overflow:hidden;}
+  .testi .section-head h2{color:var(--white);}
+  .testi .section-head p{color:var(--bege);}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .testi-card{
+    background:var(--charcoal-2);border:1px solid rgba(195,154,77,.25);
+    border-radius:var(--radius);padding:30px 26px;
+    position:relative;
+  }
+  .testi-stars{display:flex;gap:3px;margin-bottom:16px;}
+  .testi-stars svg{width:15px;height:15px;color:var(--gold);}
+  .testi-card p{color:var(--bege);font-size:15px;font-style:italic;line-height:1.65;margin-bottom:20px;}
+  .testi-who{display:flex;align-items:center;gap:12px;}
+  .testi-avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:linear-gradient(135deg, var(--gold), var(--wine-2));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--white);font-family:'Fraunces',serif;font-weight:700;font-size:15px;
+  }
+  .testi-who b{color:var(--white);font-size:14px;display:block;}
+  .testi-who span{color:var(--gold-2);font-size:12px;}
+
+  /* ---------- order form ---------- */
+  .order{background:var(--cream);}
+  .order-wrap{
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:0;
+    background:var(--white);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 30px 70px -30px rgba(28,21,18,.3);
+    border:1px solid rgba(195,154,77,.25);
+  }
+  .order-side{
+    background:
+      linear-gradient(160deg, rgba(28,21,18,.88), rgba(110,29,26,.86)),
+      url('assets/chourico-1.jpg');
+    background-size:cover;background-position:center;
+    padding:52px 40px;color:var(--white);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .order-side .eyebrow{color:var(--gold-2);margin-bottom:14px;display:block;}
+  .order-side h2{color:var(--white);font-size:30px;margin-bottom:16px;line-height:1.2;}
+  .order-side p{color:var(--bege);font-size:15px;margin-bottom:28px;}
+  .order-side-list{display:flex;flex-direction:column;gap:14px;}
+  .order-side-list li{
+    display:flex;gap:12px;align-items:center;color:var(--bege);font-size:14px;
+  }
+  .order-side-list svg{width:18px;height:18px;color:var(--gold-2);flex-shrink:0;}
+  form{padding:52px 44px;}
+  .form-row{margin-bottom:20px;}
+  .form-row label{
+    display:block;font-size:12.5px;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--wine-2);margin-bottom:8px;
+  }
+  .form-row input, .form-row select{
+    width:100%;padding:13px 14px;border:1.5px solid #e2d6bd;border-radius:var(--radius);
+    font-family:'Work Sans',sans-serif;font-size:14.5px;color:var(--ink);
+    background:var(--cream);transition:border-color .2s;
+  }
+  .form-row input:focus, .form-row select:focus{
+    outline:none;border-color:var(--wine-2);
+  }
+  .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .btn-submit{
+    width:100%;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--wine);color:var(--white);
+    padding:16px 20px;border-radius:var(--radius);
+    font-weight:700;font-size:15.5px;margin-top:8px;
+    transition:background .2s, transform .2s;
+  }
+  .btn-submit:hover{background:var(--wine-2);transform:translateY(-1px);}
+  .btn-submit svg{width:19px;height:19px;}
+  .form-note{font-size:12.5px;color:var(--ink-soft);margin-top:14px;text-align:center;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--charcoal-2);color:var(--bege);padding:64px 0 26px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px;
+  }
+  .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .footer-brand img{height:38px;}
+  .footer-brand b{font-family:'Fraunces',serif;color:var(--white);font-size:18px;}
+  .footer p.desc{font-size:13.5px;color:var(--bege);max-width:320px;line-height:1.7;}
+  .footer h5{
+    color:var(--gold-2);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+    margin-bottom:18px;font-family:'Work Sans',sans-serif;font-weight:700;
+  }
+  .footer-list li{margin-bottom:12px;font-size:14px;display:flex;gap:10px;align-items:flex-start;}
+  .footer-list svg{width:16px;height:16px;color:var(--gold-2);flex-shrink:0;margin-top:2px;}
+  .footer-bottom{
+    border-top:1px solid rgba(195,154,77,.2);padding-top:26px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  }
+  .footer-bottom span{font-size:12.5px;color:#8a7c6c;}
+  .footer-final{
+    font-family:'Fraunces',serif;font-style:italic;color:var(--gold-2);font-size:15px;
+  }
+
+  /* ---------- floating whatsapp ---------- */
+  .float-wa{
+    position:fixed;bottom:24px;right:24px;z-index:80;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px -6px rgba(0,0,0,.4);
+    animation:pulse 2.4s infinite;
+  }
+  .float-wa svg{width:30px;height:30px;color:#fff;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.55), 0 10px 30px -6px rgba(0,0,0,.4);}
+    70%{box-shadow:0 0 0 16px rgba(37,211,102,0), 0 10px 30px -6px rgba(0,0,0,.4);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0), 0 10px 30px -6px rgba(0,0,0,.4);}
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-bg{animation:none;}
+    .reveal{transition:none;opacity:1;transform:none;}
+    .float-wa{animation:none;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .about-grid{grid-template-columns:1fr;gap:48px;}
+    .about-media img{height:400px;}
+    .product-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:repeat(3,1fr);}
+    .recipe-row{grid-template-columns:repeat(3,1fr);}
+    .testi-grid{grid-template-columns:1fr 1fr;}
+    .order-wrap{grid-template-columns:1fr;}
+    .order-side{padding:44px 36px;}
+  }
+  @media (max-width:720px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero-content{padding:100px 20px 60px;}
+    .hero-stats{gap:24px;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .recipe-row{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .form-grid-2{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    form{padding:36px 26px;}
+    .footer-grid{grid-template-columns:1fr;gap:32px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="assets/logo.png" alt="HRS Service">
+    </div>
+    <nav class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#porque">Porquê nós</a>
+      <a href="#receitas">Receitas</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#encomendar" class="nav-cta">Encomendar</a>
+    </nav>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <span class="eyebrow">HRS Service · Chouriço caseiro artesanal</span>
+      <h1>O sabor tradicional que <em>transforma</em> qualquer refeição</h1>
+      <p class="sub">Chouriço caseiro 100% natural, feito com carne fresca e preparado com amor para dar mais sabor às suas receitas.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="https://wa.me/258847828107?text=Ol%C3%A1%2C%20quero%20fazer%20uma%20encomenda%20de%20chouri%C3%A7o%20HRS%20Service" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.15-4.9-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.17.01.41-.07.64.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.13.63-.08.17-.21.72-.84.92-1.13.19-.29.38-.24.63-.14.26.1 1.63.77 1.91.91.29.14.48.21.55.33.07.13.07.72-.17 1.4z"/></svg>
+          Fazer Encomenda no WhatsApp
+        </a>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Entrega disponível em Maputo e Matola
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div><b>400+</b><span>Clientes satisfeitos</span></div>
+        <div><b>100%</b><span>Carne fresca, sem conservantes</span></div>
+        <div><b>4.9★</b><span>Avaliação dos clientes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-media reveal">
+      <div class="frame">
+        <img src="assets/chourico-2.jpg" alt="Chouriço caseiro artesanal HRS Service">
+      </div>
+      <div class="about-tag">
+        <b>Feito à mão</b>
+        <span>cada nó, cada corda, amarrado com cuidado artesanal</span>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Sobre o produto</span>
+      <h2>Tradição amarrada fio a fio, sabor em cada corte</h2>
+      <p class="lead">Na HRS Service produzimos chouriços caseiros artesanais com qualidade, tradição e muito sabor. Cada unidade é preparada cuidadosamente para levar até si um produto fresco, delicioso e perfeito para feijoadas, caldeiradas, massas e vários pratos familiares.</p>
+      <div class="benefits">
+        <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Carne fresca e selecionada</div>
+        <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Sem conservantes</div>
+        <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Produção artesanal</div>
+        <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Sabor tradicional</div>
+        <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Ideal para toda família</div>
+        <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Entrega em Maputo e Matola</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUTOS ============ -->
+<section class="products" id="produtos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Produtos e preços</span>
+      <h2>Escolha o seu chouriço</h2>
+      <p>Duas variedades, um só padrão de qualidade artesanal.</p>
+    </div>
+    <div class="product-grid">
+
+      <div class="product-card reveal">
+        <div class="product-media">
+          <span class="product-ribbon">Mais vendido</span>
+          <img src="assets/chourico-1.jpg" alt="Chouriço Caseiro de Porco">
+        </div>
+        <div class="product-body">
+          <h3>Chouriço Caseiro de Porco</h3>
+          <p class="tagline">O clássico da casa</p>
+          <p class="desc">Preparado com carne de porco fresca, temperado à moda tradicional e defumado lentamente para um sabor autêntico.</p>
+          <div class="price-table">
+            <div class="price-row"><span>Unidade</span><b>170 Mt</b></div>
+            <div class="price-row highlight"><span>A partir de 10 unidades</span><b>160 Mt cada</b></div>
+            <div class="price-row"><span>1 Kg</span><b>950 Mt</b></div>
+          </div>
+          <a class="btn-order" href="https://wa.me/258847828107?text=Ol%C3%A1%2C%20quero%20encomendar%20Chouri%C3%A7o%20Caseiro%20de%20Porco" target="_blank" rel="noopener">
+            Encomendar agora
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-media">
+          <span class="product-ribbon">Por encomenda</span>
+          <img src="assets/chourico-3.jpg" alt="Chouriço Caseiro de Vaca">
+        </div>
+        <div class="product-body">
+          <h3>Chouriço Caseiro de Vaca</h3>
+          <p class="tagline">Encomenda com 3 dias de antecedência</p>
+          <p class="desc">Feito com carne de vaca selecionada, ideal para quem procura um sabor mais intenso e encorpado.</p>
+          <div class="price-table">
+            <div class="price-row"><span>Unidade</span><b>200 Mt</b></div>
+            <div class="price-row"><span>1 Kg</span><b>1150 Mt</b></div>
+          </div>
+          <a class="btn-order" href="https://wa.me/258847828107?text=Ol%C3%A1%2C%20quero%20encomendar%20Chouri%C3%A7o%20Caseiro%20de%20Vaca" target="_blank" rel="noopener">
+            Encomendar agora
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORQUE ESCOLHER ============ -->
+<section class="why" id="porque">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--wine-2);">Confiança</span>
+      <h2>Porque escolher a HRS Service?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h4>Qualidade garantida</h4>
+        <p>Carne selecionada em cada lote</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c1 3-2 4-2 7a4 4 0 1 0 8 0c0-1-1-2-1-2 1 4-1 5-1 5 1-4-2-5-2-8 0-1 0-2-2-2z"/></svg></div>
+        <h4>Sabor autêntico</h4>
+        <p>Receita tradicional preservada</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h4>Feito com amor</h4>
+        <p>Cada peça preparada à mão</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.7"/><circle cx="18" cy="17" r="1.7"/></svg></div>
+        <h4>Entrega rápida</h4>
+        <p>Maputo e Matola</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17.3 6.2 20l1-6.5L2.5 9l6.6-.9L12 2l2.9 6.1 6.6.9-4.7 4.5 1 6.5z"/></svg></div>
+        <h4>Atendimento personalizado</h4>
+        <p>Resposta rápida no WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECEITAS ============ -->
+<section class="recipes" id="receitas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Na cozinha</span>
+      <h2>Onde o nosso chouriço brilha</h2>
+      <p>Um ingrediente, várias formas de saborear em família.</p>
+    </div>
+    <div class="recipe-row">
+      <div class="recipe-card reveal" style="background-image:linear-gradient(180deg, rgba(28,21,18,.1), rgba(28,21,18,.9)), url('assets/chourico-1.jpg');background-size:cover;background-position:center;">
+        <span class="num">01</span><b>Feijoada</b>
+      </div>
+      <div class="recipe-card reveal" style="background-image:linear-gradient(180deg, rgba(28,21,18,.1), rgba(28,21,18,.9)), url('assets/chourico-2.jpg');background-size:cover;background-position:center;">
+        <span class="num">02</span><b>Caldeirada</b>
+      </div>
+      <div class="recipe-card reveal" style="background-image:linear-gradient(180deg, rgba(28,21,18,.1), rgba(28,21,18,.9)), url('assets/chourico-3.jpg');background-size:cover;background-position:center;">
+        <span class="num">03</span><b>Massa especial</b>
+      </div>
+      <div class="recipe-card reveal" style="background-image:linear-gradient(180deg, rgba(28,21,18,.1), rgba(28,21,18,.9)), url('assets/chourico-1.jpg');background-size:cover;background-position:center 70%;">
+        <span class="num">04</span><b>Churrascos</b>
+      </div>
+      <div class="recipe-card reveal" style="background-image:linear-gradient(180deg, rgba(28,21,18,.1), rgba(28,21,18,.9)), url('assets/chourico-2.jpg');background-size:cover;background-position:center 70%;">
+        <span class="num">05</span><b>Pequenos-almoços</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="testi" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>Quem prova, recomenda</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"O melhor chouriço caseiro que já provei. Chegou fresco e deu um sabor incrível à minha comida."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">L</div>
+          <div><b>Lula T.</b><span>Cliente há vários meses</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Super recomendo! A qualidade é sempre consistente, todas as encomendas chegam certinhas."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">M</div>
+          <div><b>Mindoca P.</b><span>Cliente fiel</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"A entrega foi gratuita e o chouriço veio quente, como se tivesse acabado de sair do forno. Recomendo muito."</p>
+        <div class="testi-who">
+          <div class="testi-avatar">T</div>
+          <div><b>Tania C.</b><span>Cliente em Maputo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENCOMENDA ============ -->
+<section class="order" id="encomendar">
+  <div class="wrap">
+    <div class="order-wrap reveal">
+      <div class="order-side">
+        <span class="eyebrow">Faça já a sua encomenda</span>
+        <h2>O sabor que faltava na sua cozinha está aqui</h2>
+        <p>Preencha os seus dados e enviaremos o pedido diretamente para o nosso WhatsApp. Respondemos rapidamente para confirmar quantidade, preço e entrega.</p>
+        <ul class="order-side-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Entregas em Maputo e Matola</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Resposta rápida via WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Pagamento combinado no ato da entrega</li>
+        </ul>
+      </div>
+      <form id="orderForm">
+        <div class="form-row">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="O seu nome completo" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" placeholder="84/85... ou 82/83..." required>
+          </div>
+          <div class="form-row">
+            <label for="quantidade">Quantidade</label>
+            <input type="text" id="quantidade" placeholder="Ex: 10 unidades ou 1 Kg" required>
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-row">
+            <label for="tipo">Tipo de chouriço</label>
+            <select id="tipo" required>
+              <option value="">Selecione</option>
+              <option value="Chouriço de Porco">Chouriço de Porco</option>
+              <option value="Chouriço de Vaca">Chouriço de Vaca</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="local">Local de entrega</label>
+            <input type="text" id="local" placeholder="Bairro / referência" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.15-4.9-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.17.01.41-.07.64.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.13.63-.08.17-.21.72-.84.92-1.13.19-.29.38-.24.63-.14.26.1 1.63.77 1.91.91.29.14.48.21.55.33.07.13.07.72-.17 1.4z"/></svg>
+          Enviar Encomenda pelo WhatsApp
+        </button>
+        <p class="form-note">Ao enviar, será redirecionado para o WhatsApp com o seu pedido já preenchido.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="HRS Service">
+        </div>
+        <p class="desc">Chouriço caseiro artesanal, feito com carne fresca e muito sabor, entregue com confiança a famílias e restaurantes em Maputo e Matola.</p>
+      </div>
+      <div>
+        <h5>Contactos</h5>
+        <ul class="footer-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Matola C700 — Moçambique</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.7"/><circle cx="18" cy="17" r="1.7"/></svg>Entregas em Maputo e Matola</li>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2z"/></svg>WhatsApp: +258 84 782 8107</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul class="footer-list">
+          <li><a href="#sobre">Sobre o produto</a></li>
+          <li><a href="#produtos">Produtos e preços</a></li>
+          <li><a href="#receitas">Receitas</a></li>
+          <li><a href="#encomendar">Fazer encomenda</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HRS Service. Todos os direitos reservados.</span>
+      <span class="footer-final">"O sabor que faltava na sua cozinha está aqui."</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="float-wa" href="https://wa.me/258847828107?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20chouri%C3%A7o%20HRS%20Service" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.15-4.9-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.17.01.41-.07.64.48.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.13.63-.08.17-.21.72-.84.92-1.13.19-.29.38-.24.63-.14.26.1 1.63.77 1.91.91.29.14.48.21.55.33.07.13.07.72-.17 1.4z"/></svg>
+</a>
+
+<script>
+  // scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.14});
+  reveals.forEach(el=>io.observe(el));
+
+  // order form -> whatsapp
+  const form = document.getElementById('orderForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    const quantidade = document.getElementById('quantidade').value.trim();
+    const tipo = document.getElementById('tipo').value;
+    const local = document.getElementById('local').value.trim();
+
+    const msg =
+`Olá, gostaria de fazer uma encomenda HRS Service:
+Nome: ${nome}
+Telefone: ${telefone}
+Quantidade: ${quantidade}
+Tipo de chouriço: ${tipo}
+Local de entrega: ${local}`;
+
+    const url = 'https://wa.me/258847828107?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
